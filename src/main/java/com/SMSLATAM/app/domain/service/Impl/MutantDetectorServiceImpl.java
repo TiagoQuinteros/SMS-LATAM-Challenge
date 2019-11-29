@@ -1,6 +1,11 @@
 package com.SMSLATAM.app.domain.service.Impl;
 
-public class MutantDetectorServiceImpl
+import org.springframework.stereotype.Service;
+
+import com.SMSLATAM.app.domain.service.MutantDetectorService;
+
+@Service
+public class MutantDetectorServiceImpl implements MutantDetectorService
 {
 
 	public Boolean isMutant(String[] adn)
