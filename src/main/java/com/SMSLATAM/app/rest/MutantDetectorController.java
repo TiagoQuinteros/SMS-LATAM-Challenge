@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.SMSLATAM.app.AdnRequestApi;
 import com.SMSLATAM.app.domain.service.MutantDetectorService;
 
 
@@ -27,9 +28,9 @@ public class MutantDetectorController
 	@PostMapping(path = "", produces = {
 			MediaType.APPLICATION_JSON_VALUE }, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> digitalAccountTransfer(
-			@RequestBody(required = true) String ADN) {
+			@RequestBody(required = true) AdnRequestApi dna) {
 				
-		if(mutantDetectorService.isMutant(null)) {
+		if(mutantDetectorService.isMutant(dna.getDna())) {
 			return new ResponseEntity<Object>(HttpStatus.OK);
 		}
 		else {
