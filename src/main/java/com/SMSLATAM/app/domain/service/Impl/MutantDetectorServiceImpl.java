@@ -109,9 +109,12 @@ public class MutantDetectorServiceImpl implements MutantDetectorService {
 		float humanCounter = 0;
 		float mutantCounter = 0;
 		for (AdnApi adn : adns) {
-			if (adn.getMutant() == true)
+			if (adn.getMutant() == true) {
 				mutantCounter++;
-			humanCounter++;
+			}
+			else {
+				humanCounter++;
+			}
 		}
 		response.setCount_human_dna(humanCounter);
 		response.setCount_mutant_dna(mutantCounter);
