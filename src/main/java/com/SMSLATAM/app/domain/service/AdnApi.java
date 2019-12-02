@@ -53,7 +53,7 @@ public class AdnApi {
 		this.id = id;
 		this.mutant = mutant;
 	}
-	
+
 	public AdnApi() {
 		super();
 	}

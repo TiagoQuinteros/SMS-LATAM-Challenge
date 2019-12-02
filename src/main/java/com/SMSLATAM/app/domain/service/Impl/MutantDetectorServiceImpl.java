@@ -103,25 +103,29 @@ public class MutantDetectorServiceImpl implements MutantDetectorService {
 
 	@Override
 	public statsResponse stats() {
-		
+
 		List<AdnApi> adns = dnaRepository.findAll();
-		if (adns.isEmpty())
-			return null;
 		statsResponse response = new statsResponse();
 		float humanCounter = 0;
 		float mutantCounter = 0;
-		for (AdnApi adn : adns) {
-			if (adn.getMutant() == true) {
-				mutantCounter++;
+		if (adns == null) {
+			response.setRatio(0);
+		} else {
+			for (AdnApi adn : adns) {
+				if (adn.getMutant() == true) {
+					mutantCounter++;
+				} else {
+					humanCounter++;
+				}
 			}
-			else {
-				humanCounter++;
-			}
+			// mutants over total number of analyzed
+			response.setRatio(mutantCounter / (mutantCounter + humanCounter));
 		}
+
 		response.setCount_human_dna(humanCounter);
 		response.setCount_mutant_dna(mutantCounter);
-		response.setRatio(mutantCounter / (mutantCounter + humanCounter));
 		return response;
+
 	}
 
 }
