@@ -8,26 +8,28 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.SMSLATAM.app.AdnRequestApi;
+import com.SMSLATAM.app.statsResponse;
 import com.SMSLATAM.app.domain.service.MutantDetectorService;
 
 
 @CrossOrigin(origins = "*", maxAge = 86400)
 @RestController
-@RequestMapping("/mutant/")
+@RequestMapping("")
 public class MutantDetectorController
 {
 	@Autowired
 	private MutantDetectorService mutantDetectorService;
 	
-	@PostMapping(path = "", produces = {
+	@PostMapping(path = "/mutant/", produces = {
 			MediaType.APPLICATION_JSON_VALUE }, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> digitalAccountTransfer(
+	public ResponseEntity<Object> isMutant(
 			@RequestBody(required = true) AdnRequestApi dna) {
 				
 		if(mutantDetectorService.isMutant(dna.getDna())) {
@@ -36,6 +38,14 @@ public class MutantDetectorController
 		else {
 			return new ResponseEntity<Object>(HttpStatus.FORBIDDEN);
 		}
+		
+		
+	}
+	@GetMapping(path = "/stats", produces = {
+			MediaType.APPLICATION_JSON_VALUE }, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public statsResponse stats() {
+				
+		return mutantDetectorService.stats();
 		
 		
 	}
