@@ -1,6 +1,5 @@
 package com.SMSLATAM.app.domain.service;
 
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.SMSLATAM.app.statsResponse;

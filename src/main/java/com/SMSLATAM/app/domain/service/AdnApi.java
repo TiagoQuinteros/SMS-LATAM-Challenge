@@ -47,4 +47,14 @@ public class AdnApi {
 		this.mutant = mutant;
 	}
 
+	public AdnApi(Long id, String[] dna, Boolean mutant) {
+		super();
+		this.dna = dna;
+		this.id = id;
+		this.mutant = mutant;
+	}
+	
+	public AdnApi() {
+		super();
+	}
 }

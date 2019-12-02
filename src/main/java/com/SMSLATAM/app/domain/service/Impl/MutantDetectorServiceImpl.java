@@ -3,7 +3,6 @@ package com.SMSLATAM.app.domain.service.Impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.SMSLATAM.app.statsResponse;
@@ -104,7 +103,10 @@ public class MutantDetectorServiceImpl implements MutantDetectorService {
 
 	@Override
 	public statsResponse stats() {
+		
 		List<AdnApi> adns = dnaRepository.findAll();
+		if (adns.isEmpty())
+			return null;
 		statsResponse response = new statsResponse();
 		float humanCounter = 0;
 		float mutantCounter = 0;
