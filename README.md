@@ -2,6 +2,7 @@
 
 El challenge fue resuelto hasta el nivel 3, quedando pendiende el deploy a heroku
 repositorio en github : https://github.com/TiagoQuinteros/SMS-LATAM-Challenge
+
 ---------
 
 To run application: mutantDetector
@@ -17,6 +18,7 @@ git
 maven
 
 postman or similar
+
 ---------
 ### steps:
 
@@ -25,10 +27,11 @@ postman or similar
 2- execute this comand: mvn clean compile spring-boot:run
 
 3- open postman and use the services
+
 ---------
 ### example of curls to use the services
 
-example 1: Mutant
+###### example 1: Mutant
 
 curl -X POST \
   http://localhost:9898/mutant/ \
@@ -41,7 +44,7 @@ curl -X POST \
 '
 reponse: STATUS 200 OK
 
-example 2: noMutant
+###### example 2: noMutant
 
 curl -X POST \
   http://localhost:9898/mutant/ \
@@ -61,7 +64,7 @@ curl -X POST \
 '
 response: STATUS: 403 Forbidden
 
-example 3: stats
+###### example 3: stats
 
 curl -X GET \
   http://localhost:9898/stats \
@@ -87,7 +90,7 @@ response:
     "ratio": 0.5
 }
 
-
+---------
 ### evidencia test 
 
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
