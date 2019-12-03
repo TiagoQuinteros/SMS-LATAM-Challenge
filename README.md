@@ -25,9 +25,11 @@ postman or similar
 
 1- execute this comand in a empty folder: git clone https://github.com/TiagoQuinteros/SMS-LATAM-Challenge.git
 
-2- execute this comand: mvn clean compile spring-boot:run
+2- create database mutantdetector
 
-3- open postman and use the services
+3- execute this comand: mvn clean compile spring-boot:run
+
+4- open postman and use the services
 
 ---------
 ### example of curls to use the services
