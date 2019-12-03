@@ -1,6 +1,8 @@
 package com.SMSLATAM.app.rest;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -27,7 +29,7 @@ public class MutantDetectorController {
 	@Validated
 	@PostMapping(path = "/mutant/", produces = {
 			MediaType.APPLICATION_JSON_VALUE }, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Object> isMutant(@RequestBody(required = true) @Valid AdnRequestApi dna) {
+	public ResponseEntity<Object> isMutant(@RequestBody(required = true) @Valid @NotNull(message = "dna cant be null") AdnRequestApi dna) {
 		if (!dna.validate())
 			return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
 		

@@ -13,7 +13,7 @@ public class AdnRequestApi {
 
 // TODO: how to make this work
 //	@Pattern(regexp = "[ATCGatcg]*$", message = "Una base nitrogenada solo pueden ser de tipo ATCG")
-	@NotNull
+	@NotNull(message = "dna cant be null")
 	@JsonProperty("dna")
 	private String[] dna;
 
@@ -26,13 +26,13 @@ public class AdnRequestApi {
 	}
 
 	public Boolean validate() {
-		Boolean validate = true;
+		Boolean validate = false;
 		for (@NotNull
 		String gen : this.dna) {
 			Pattern pat = Pattern.compile("[ATCGatcg]*$");
 			Matcher mat = pat.matcher(gen);
-			if (!mat.matches())
-				validate = false;
+			if (mat.matches())
+				validate = true;
 
 		}
 		return validate;
