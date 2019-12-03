@@ -1,6 +1,7 @@
 # SMS-LATAM-Challenge
 
 El challenge fue resuelto hasta el nivel 3, quedando pendiende el deploy a heroku
+
 repositorio en github : https://github.com/TiagoQuinteros/SMS-LATAM-Challenge
 
 ---------
@@ -42,6 +43,7 @@ curl -X POST \
 "dna":["AAGTGC","AAATGC","AAGTGC","AAATGC"]
 }
 '
+
 reponse: STATUS 200 OK
 
 ###### example 2: noMutant
@@ -62,6 +64,7 @@ curl -X POST \
 "dna":["AAGTGC","AAATGC"]
 }
 '
+
 response: STATUS: 403 Forbidden
 
 ###### example 3: stats
